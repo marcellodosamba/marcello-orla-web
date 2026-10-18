@@ -1,0 +1,42 @@
+import type { Metadata } from 'next'
+import { getPublicCatalog } from '@/lib/data/public-catalog'
+import { PageHeading, ProjectCover } from '../public-content'
+
+export const metadata: Metadata = {
+  title: 'Cariocando',
+  description:
+    'Conheça Cariocando, uma obra de samba carioca contemporâneo de Marcello Orla.',
+}
+
+export default async function CariocandoPage() {
+  const catalog = await getPublicCatalog()
+  const tracks = catalog.tracks.filter(track => track.album?.trim().toLowerCase() === 'cariocando')
+
+  return (
+    <main className="page-wrap">
+      <PageHeading
+        eyebrow="Obra em destaque"
+        title="Cariocando"
+        description="Samba carioca contemporâneo. Uma obra de Marcello Orla."
+      />
+      <section className="album-layout">
+        <ProjectCover />
+        <div className="album-copy">
+          <p className="eyebrow">Marcello Orla</p>
+          <h2 className="section-title">Uma cidade em forma de canção.</h2>
+          <p>
+            Cariocando ocupa um lugar central nesta experiência pública.
+            Acompanhe por aqui as informações e novidades confirmadas sobre a
+            obra.
+          </p>
+        </div>
+      </section>
+      <section aria-labelledby="catalog-title" className="section-block">
+        <h2 id="catalog-title" className="section-title">Faixas no catálogo</h2>
+        {catalog.error ? <p className="catalog-state" role="alert">{catalog.error}</p> : tracks.length === 0 ? <p className="catalog-state">Nenhuma faixa disponível neste catálogo.</p> : (
+          <ul className="catalog-tracks">{tracks.map(track => <li key={track.id}><span className="catalog-track-title">{track.number != null ? `${track.number}. ` : ''}{track.title}</span>{track.album && <span className="catalog-track-album">{track.album}</span>}</li>)}</ul>
+        )}
+      </section>
+    </main>
+  )
+}

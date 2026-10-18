@@ -1,0 +1,95 @@
+{
+  "version": "MO-CORES-2026-10-12-v1",
+  "colors": [
+    {
+      "id": "COR-01",
+      "name": "Cloud Dancer",
+      "hex": "#F0EEE9",
+      "group": "PRINCIPAL"
+    },
+    {
+      "id": "COR-02",
+      "name": "Secret Spaces",
+      "hex": "#B6BBC0",
+      "group": "COMPLEMENTAR"
+    },
+    {
+      "id": "COR-03",
+      "name": "Curds & Whey",
+      "hex": "#BCA483",
+      "group": "COMPLEMENTAR"
+    },
+    {
+      "id": "COR-04",
+      "name": "Marrom terroso",
+      "hex": "#7D5B4F",
+      "group": "PRINCIPAL"
+    },
+    {
+      "id": "COR-05",
+      "name": "Cocoa",
+      "hex": "#594536",
+      "group": "COMPLEMENTAR"
+    },
+    {
+      "id": "COR-06",
+      "name": "Raw Umber",
+      "hex": "#92705F",
+      "group": "COMPLEMENTAR"
+    },
+    {
+      "id": "COR-07",
+      "name": "Thunderstorm",
+      "hex": "#5B585A",
+      "group": "PRINCIPAL"
+    },
+    {
+      "id": "COR-08",
+      "name": "Dark Gull Gray",
+      "hex": "#625D5D",
+      "group": "COMPLEMENTAR"
+    },
+    {
+      "id": "COR-09",
+      "name": "Baritone Blue",
+      "hex": "#272836",
+      "group": "COMPLEMENTAR"
+    },
+    {
+      "id": "COR-10",
+      "name": "Bluing",
+      "hex": "#333E83",
+      "group": "COMPLEMENTAR"
+    },
+    {
+      "id": "COR-11",
+      "name": "Grayed Jade",
+      "hex": "#9ABFAB",
+      "group": "PRINCIPAL"
+    },
+    {
+      "id": "COR-12",
+      "name": "Macchiato",
+      "hex": "#AC8266",
+      "group": "COMPLEMENTAR"
+    },
+    {
+      "id": "COR-13",
+      "name": "Grafite",
+      "hex": "#2B2C30",
+      "group": "PRINCIPAL"
+    },
+    {
+      "id": "COR-14",
+      "name": "Burgundy",
+      "hex": "#64313E",
+      "group": "COMPLEMENTAR"
+    },
+    {
+      "id": "COR-15",
+      "name": "Azul 533 C",
+      "hex": "#1B2A41",
+      "group": "PRINCIPAL"
+    }
+  ]
+}
