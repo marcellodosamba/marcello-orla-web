@@ -24,3 +24,5 @@ jobs:
       - run: npm run build
       - name: Check vinext compatibility
         run: npx --yes vinext@1.2.1 check
+      - name: Build Cloudflare Workers target
+        run: npm run build:vinext
