@@ -282,7 +282,7 @@ button:not(:disabled),
   align-self: center;
   max-width: 8ch;
   font-family: var(--font-cormorant), serif;
-  font-size: clamp(3.4rem, 8vw, 7.2rem);
+  font-size: clamp(2.2rem, 4.5vw, 5.2rem);
   font-weight: 400;
   letter-spacing: -0.06em;
   line-height: 0.84;
