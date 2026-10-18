@@ -13,20 +13,35 @@ O app não depende de Conselho, autenticação, providers ou infraestrutura priv
 
 ## Ambiente
 
+O catálogo é lido somente no servidor. Não use `NEXT_PUBLIC_*` para as credenciais do Supabase:
+
 ```bash
-NEXT_PUBLIC_SUPABASE_URL=https://gpbkbszchibjtdmkliah.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=<publishable-key>
+SUPABASE_URL=https://gpbkbszchibjtdmkliah.supabase.co
+SUPABASE_PUBLISHABLE_KEY=<publishable-key>
 ```
 
-Nunca reutilize chaves do projeto OSAMBA.
+No Cloudflare Workers, `SUPABASE_URL` é um text binding e `SUPABASE_PUBLISHABLE_KEY` é um secret binding. Nunca use `service_role` neste app.
+
+## Cloudflare Workers
+
+O projeto mantém Next.js e vinext em paralelo:
+
+```bash
+npm run build
+npm run build:vinext
+npm run deploy:vinext
+```
+
+Worker: `marcello-orla-web`.
 
 ## Validação
 
 ```bash
-npm install
+npm ci
 npm test
 npm run typecheck
 npm run build
+npm run build:vinext
 ```
 
 Baseline de separação: `SEP-MO-OSAMBA-2026-10-17`.
