@@ -1,0 +1,36 @@
+name: Cloudflare Scaffold
+
+on:
+  push:
+    branches:
+      - cloudflare/vinext-preview-20261018
+  workflow_dispatch:
+
+jobs:
+  scaffold:
+    runs-on: ubuntu-latest
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: https://gpbkbszchibjtdmkliah.supabase.co
+      NEXT_PUBLIC_SUPABASE_ANON_KEY: test-publishable-key
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Generate Cloudflare vinext configuration
+        run: npx --yes vinext@1.2.1 init --platform=cloudflare --name=marcello-orla-web --cdn-cache=none --data-cache=none --image-optimization=none --skip-check
+      - name: Build with vinext
+        run: npm run build:vinext
+      - run: git diff --check
+      - name: Capture generated configuration
+        uses: actions/upload-artifact@v4
+        with:
+          name: cloudflare-vinext-scaffold
+          path: |
+            package.json
+            package-lock.json
+            vite.config.ts
+            cloudflare.config.ts
+            .gitignore
