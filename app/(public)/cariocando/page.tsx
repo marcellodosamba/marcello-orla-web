@@ -1,19 +1,19 @@
-import type { Metadata } from 'next'
+import { publicPageMetadata } from '@/lib/seo/public-metadata'
 import { getPublicCatalog } from '@/lib/data/public-catalog'
 import { PageHeading, ProjectCover } from '../public-content'
 
-export const metadata: Metadata = {
+export const metadata = publicPageMetadata({
+  pathname: '/cariocando',
   title: 'Cariocando',
-  description:
-    'Conheça Cariocando, uma obra de samba carioca contemporâneo de Marcello Orla.',
-}
+  description: 'Conheça Cariocando, uma obra de samba carioca contemporâneo de Marcello Orla.',
+})
 
 export default async function CariocandoPage() {
   const catalog = await getPublicCatalog()
   const tracks = catalog.tracks.filter(track => track.album?.trim().toLowerCase() === 'cariocando')
 
   return (
-    <main className="page-wrap">
+    <main id="conteudo" className="page-wrap" tabIndex={-1}>
       <PageHeading
         eyebrow="Obra em destaque"
         title="Cariocando"

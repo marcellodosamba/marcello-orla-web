@@ -1,20 +1,20 @@
-import type { Metadata } from 'next'
+import { publicPageMetadata } from '@/lib/seo/public-metadata'
 import { getPublicCatalog } from '@/lib/data/public-catalog'
 import Link from 'next/link'
 import { PageHeading, ProjectCover } from '../public-content'
 
-export const metadata: Metadata = {
+export const metadata = publicPageMetadata({
+  pathname: '/musica',
   title: 'Música',
-  description:
-    'Explore a música de Marcello Orla e conheça Cariocando, uma obra em destaque.',
-}
+  description: 'Explore a música de Marcello Orla e conheça Cariocando, uma obra em destaque.',
+})
 
 export default async function MusicaPage() {
   const catalog = await getPublicCatalog()
   const tracks = catalog.tracks
 
   return (
-    <main className="page-wrap">
+    <main id="conteudo" className="page-wrap" tabIndex={-1}>
       <PageHeading
         eyebrow="Escuta"
         title="Música"

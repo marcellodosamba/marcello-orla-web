@@ -1,15 +1,15 @@
-import type { Metadata } from 'next'
+import { publicPageMetadata } from '@/lib/seo/public-metadata'
 import { PageHeading } from '../public-content'
 
-export const metadata: Metadata = {
+export const metadata = publicPageMetadata({
+  pathname: '/sobre',
   title: 'O artista',
-  description:
-    'Conheça Marcello Orla e sua identidade artística no samba carioca contemporâneo.',
-}
+  description: 'Conheça Marcello Orla e sua identidade artística no samba carioca contemporâneo.',
+})
 
 export default function SobrePage() {
   return (
-    <main className="page-wrap">
+    <main id="conteudo" className="page-wrap" tabIndex={-1}>
       <PageHeading
         eyebrow="O intérprete"
         title="Marcello Orla"

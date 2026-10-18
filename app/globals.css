@@ -131,6 +131,29 @@ button:not(:disabled),
   transition: opacity 180ms ease;
 }
 
+.skip-link {
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  z-index: 30;
+  transform: translateY(-150%);
+  padding: 12px 16px;
+  background: var(--color-primary);
+  color: var(--color-paper);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
 .nav-link:hover,
 .system-link:hover,
 .text-link:hover {
@@ -438,6 +461,27 @@ button:not(:disabled),
 .footer-brand {
   display: grid;
   gap: 6px;
+}
+
+.footer-official {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.contact-official {
+  max-width: 720px;
+}
+.contact-official p {
+  max-width: 34rem;
+  margin-block: 20px 24px;
+  color: var(--color-muted);
 }
 
 .footer-system {
