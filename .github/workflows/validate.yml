@@ -26,3 +26,9 @@ jobs:
         run: npx --yes vinext@1.2.1 check
       - name: Build Cloudflare Workers target
         run: npm run build:vinext
+      - name: Validate Cloudflare deployment package
+        shell: bash
+        run: |
+          umask 077
+          printf 'SUPABASE_PUBLISHABLE_KEY=%s\n' 'dry-run-publishable-key' > "$RUNNER_TEMP/cloudflare-secrets.env"
+          npx cf deploy --dry-run --prebuilt --secrets-file "$RUNNER_TEMP/cloudflare-secrets.env"
