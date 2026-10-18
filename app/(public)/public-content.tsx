@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 
 export function PageHeading({
@@ -21,15 +20,14 @@ export function PageHeading({
 
 export function ProjectCover({ className = '' }: { className?: string }) {
   return (
-    <div className={`cover-frame ${className}`}>
-      <Image
-        src="/covers/cariocando-clara.jpg"
-        alt="Capa de Cariocando com Marcello Orla"
-        width={1500}
-        height={1500}
-        priority
-        unoptimized
-      />
+    <div
+      className={`cover-frame project-cover-card ${className}`}
+      role="img"
+      aria-label="Capa tipográfica de Cariocando, de Marcello Orla"
+    >
+      <span className="project-cover-kicker">MARCELLO ORLA</span>
+      <strong className="project-cover-title">CARIOCANDO</strong>
+      <span className="project-cover-note">SAMBA CARIOCA CONTEMPORÂNEO</span>
     </div>
   )
 }
