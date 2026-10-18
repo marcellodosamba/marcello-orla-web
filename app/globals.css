@@ -280,9 +280,10 @@ button:not(:disabled),
 
 .project-cover-title {
   align-self: center;
-  max-width: 8ch;
+  min-width: 0;
+  white-space: nowrap;
   font-family: var(--font-cormorant), serif;
-  font-size: clamp(2.2rem, 4.5vw, 5.2rem);
+  font-size: clamp(2rem, 4.2vw, 4rem);
   font-weight: 400;
   letter-spacing: -0.06em;
   line-height: 0.84;
@@ -294,6 +295,7 @@ button:not(:disabled),
 }
 
 .cover-frame-hero {
+  width: 100%;
   max-width: 560px;
   margin: 0;
   justify-self: end;
