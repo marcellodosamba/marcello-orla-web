@@ -6,6 +6,9 @@ on:
       - cloudflare/vinext-preview-20261018
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   scaffold:
     runs-on: ubuntu-latest
@@ -24,13 +27,15 @@ jobs:
       - name: Build with vinext
         run: npm run build:vinext
       - run: git diff --check
-      - name: Capture generated configuration
-        uses: actions/upload-artifact@v4
-        with:
-          name: cloudflare-vinext-scaffold
-          path: |
-            package.json
-            package-lock.json
-            vite.config.ts
-            cloudflare.config.ts
-            .gitignore
+      - name: Commit generated Cloudflare configuration
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo "No generated changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package.json package-lock.json vite.config.ts cloudflare.config.ts .gitignore
+          git commit -m "chore: add Cloudflare vinext configuration"
+          git push origin HEAD:cloudflare/vinext-preview-20261018
