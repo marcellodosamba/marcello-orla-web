@@ -1,15 +1,15 @@
-import type { Metadata } from 'next'
+import { publicPageMetadata } from '@/lib/seo/public-metadata'
 import { EmptyState, PageHeading } from '../public-content'
 
-export const metadata: Metadata = {
+export const metadata = publicPageMetadata({
+  pathname: '/agenda',
   title: 'Agenda',
-  description:
-    'Acompanhe as apresentações públicas de Marcello Orla nesta agenda.',
-}
+  description: 'Acompanhe as apresentações públicas de Marcello Orla nesta agenda.',
+})
 
 export default function AgendaPage() {
   return (
-    <main className="page-wrap">
+    <main id="conteudo" className="page-wrap" tabIndex={-1}>
       <PageHeading
         eyebrow="Encontros"
         title="Agenda"

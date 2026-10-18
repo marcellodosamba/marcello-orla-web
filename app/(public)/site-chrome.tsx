@@ -12,6 +12,7 @@ const navigation = [
 export function PublicHeader() {
   return (
     <header className="public-header">
+      <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
       <Link className="brand-lockup" href="/" aria-label="Marcello Orla, início">
         <span className="brand-name">Marcello Orla</span>
         <span className="brand-descriptor">Samba carioca contemporâneo</span>
@@ -35,6 +36,9 @@ export function PublicFooter() {
         <span className="brand-name">Marcello Orla</span>
         <span className="footer-note">Samba carioca contemporâneo</span>
       </div>
+      <a className="footer-official" href="https://beacons.ai/marcellorlaoff" rel="noopener noreferrer">
+        Canais oficiais <span aria-hidden="true">↗</span>
+      </a>
     </footer>
   )
 }

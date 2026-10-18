@@ -66,3 +66,20 @@ mudar visibilidade ou contratar plano sem decisão explícita.
 Antes de habilitar Cloudflare Builds conectado ao GitHub, confirmar os
 bindings e a origem da versão em produção. Evitar dois mecanismos de deploy
 atuando simultaneamente sem orquestração definida.
+
+## UX e metadados públicos
+
+As rotas públicas declaram metadados próprios em `lib/seo/public-metadata.ts`, com
+canonical e Open Graph coerentes por endereço. O layout compartilhado mantém
+`metadataBase` apontando para o endereço atualmente publicado do Worker.
+
+O cabeçalho oferece o atalho de teclado **Pular para o conteúdo**, e os links
+do menu têm área mínima de interação de 44 px. O rodapé e a página Contato
+apresentam a página pública de links do artista no Beacons; **não** divulgam
+endereços de email privados nem prometem canal de contratação confirmado.
+
+O link Beacons foi aberto e validado no Chrome do Galaxy Tab S9 FE em
+18/10/2026: perfil do artista, canais sociais e catálogo público visíveis.
+A consulta automatizada via curl recebeu 403; não equivale a erro no navegador.
+Agenda, banda e apresentações mantêm estados informativos até confirmação dos
+dados e autorização de divulgação.

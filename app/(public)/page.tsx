@@ -1,16 +1,16 @@
-import type { Metadata } from 'next'
+import { publicPageMetadata } from '@/lib/seo/public-metadata'
 import Link from 'next/link'
 import { ProjectCover, ProjectLink } from './public-content'
 
-export const metadata: Metadata = {
+export const metadata = publicPageMetadata({
+  pathname: '/',
   title: 'Marcello Orla — Samba carioca contemporâneo',
-  description:
-    'Conheça Marcello Orla, sua música e o universo do samba carioca contemporâneo.',
-}
+  description: 'Conheça Marcello Orla, sua música e o universo do samba carioca contemporâneo.',
+})
 
 export default function HomePage() {
   return (
-    <main className="page-wrap">
+    <main id="conteudo" className="page-wrap" tabIndex={-1}>
       <section className="hero-grid" aria-labelledby="home-title">
         <div className="hero-copy">
           <p className="eyebrow">Uma voz, um lugar, muitas histórias</p>
