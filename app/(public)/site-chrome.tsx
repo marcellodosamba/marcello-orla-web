@@ -24,10 +24,6 @@ export function PublicHeader() {
           </Link>
         ))}
       </nav>
-
-      <Link className="system-link" href="/login">
-        OSAMBA SYSTEM <span aria-hidden="true">↗</span>
-      </Link>
     </header>
   )
 }
@@ -39,9 +35,6 @@ export function PublicFooter() {
         <span className="brand-name">Marcello Orla</span>
         <span className="footer-note">Samba carioca contemporâneo</span>
       </div>
-      <Link className="footer-system" href="/login">
-        OSAMBA SYSTEM <span aria-hidden="true">↗</span>
-      </Link>
     </footer>
   )
 }
