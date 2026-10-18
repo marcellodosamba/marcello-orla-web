@@ -45,3 +45,24 @@ npm run build:vinext
 ```
 
 Baseline de separação: `SEP-MO-OSAMBA-2026-10-17`.
+
+## Publicação controlada (orçamento R$ 0)
+
+A publicação do Worker existente `marcello-orla-web` é **manual** pelo workflow
+`Deploy Cloudflare` (GitHub Actions). O job só executa para a branch `main` do
+repositório `marcellodosamba/marcello-orla-web`, quando iniciado pela conta
+`marcellodosamba` e após digitar `DEPLOY`. Uma publicação em andamento não será
+cancelada por outra execução.
+
+O workflow requer secrets de repositório `CLOUDFLARE_API_TOKEN` e
+`SUPABASE_PUBLISHABLE_KEY`. Cadastre-os apenas diretamente no GitHub, nunca
+no código ou no chat. Sem os secrets, o deploy falha de forma segura.
+
+Em 18/10/2026, a API do GitHub informou que branch rulesets para este
+repositório **privado** exigem GitHub Pro ou repositório público. O guard do
+workflow é proteção adicional, **não substitui** branch protection. Não
+mudar visibilidade ou contratar plano sem decisão explícita.
+
+Antes de habilitar Cloudflare Builds conectado ao GitHub, confirmar os
+bindings e a origem da versão em produção. Evitar dois mecanismos de deploy
+atuando simultaneamente sem orquestração definida.
