@@ -10,7 +10,7 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     env:
-      SUPABASE_URL: https://marcello-orla.test.supabase.co
+      SUPABASE_URL: https://gpbkbszchibjtdmkliah.supabase.co
       SUPABASE_PUBLISHABLE_KEY: test-publishable-key
     steps:
       - uses: actions/checkout@v4
