@@ -1,0 +1,28 @@
+name: Build Cloudflare Prebuilt
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      SUPABASE_URL: https://gpbkbszchibjtdmkliah.supabase.co
+      SUPABASE_PUBLISHABLE_KEY: test-publishable-key
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run build:vinext
+      - name: Package prebuilt output
+        shell: bash
+        run: |
+          tar -czf cloudflare-prebuilt.tgz             .vinext .cloudflare dist             cloudflare.config.ts vite.config.ts package.json package-lock.json 2>/dev/null ||           tar -czf cloudflare-prebuilt.tgz             .vinext .cloudflare             cloudflare.config.ts vite.config.ts package.json package-lock.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: marcello-orla-cloudflare-prebuilt
+          path: cloudflare-prebuilt.tgz
+          if-no-files-found: error
