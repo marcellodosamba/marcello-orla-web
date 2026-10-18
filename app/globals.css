@@ -419,6 +419,25 @@ button:not(:disabled),
   color: var(--color-muted);
 }
 
+/* Conversão editorial com canais de escuta públicos, sem prometer lançamentos. */
+.editorial-listening {
+  border-top: 1px solid var(--color-line);
+}
+.editorial-listening > p:not(.eyebrow) {
+  max-width: 38rem;
+  margin-block: 18px 22px;
+  color: var(--color-muted);
+}
+.editorial-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+.editorial-listening .section-title {
+  max-width: 780px;
+}
+
 .empty-state {
   max-width: 760px;
   padding: clamp(26px, 5vw, 48px);

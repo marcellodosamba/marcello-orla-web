@@ -3,6 +3,7 @@ import Link from 'next/link'
 const navigation = [
   { href: '/musica', label: 'Música' },
   { href: '/cariocando', label: 'Cariocando' },
+  { href: '/sobre', label: 'Sobre' },
   { href: '/banda', label: 'Banda' },
   { href: '/ao-vivo', label: 'Ao vivo' },
   { href: '/agenda', label: 'Agenda' },

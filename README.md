@@ -83,3 +83,16 @@ O link Beacons foi aberto e validado no Chrome do Galaxy Tab S9 FE em
 A consulta automatizada via curl recebeu 403; não equivale a erro no navegador.
 Agenda, banda e apresentações mantêm estados informativos até confirmação dos
 dados e autorização de divulgação.
+
+## Conteúdo editorial e descoberta
+
+A página `Sobre` usa a apresentação pública do artista — “Carioca, samba,
+pagode e histórias que viram canção” — com texto editorial breve, sem
+inventar contratos, agenda, prêmios ou formação de banda. O menu público dá
+acesso direto à biografia. Nas páginas `Música` e `Cariocando`, o convite à
+escuta usa `https://beacons.ai/marcellorlaoff`, canal previamente validado no
+navegador do tablet. O catálogo continua sendo lido no servidor através do
+read-model `marcello_public_tracks`: sem duplicação estática de lançamentos.
+
+Imagens e fotografias somente após autorização de uso e checagem dos direitos
+pertinentes; a capa existente não foi substituída neste ciclo.

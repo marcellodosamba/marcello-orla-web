@@ -44,6 +44,19 @@ export default async function MusicaPage() {
           <ul className="catalog-tracks">{tracks.map(track => <li key={track.id}><span className="catalog-track-title">{track.number != null ? `${track.number}. ` : ''}{track.title}</span>{track.album && <span className="catalog-track-album">{track.album}</span>}</li>)}</ul>
         )}
       </section>
+      <section className="section-block editorial-listening" aria-labelledby="listen-title">
+        <p className="eyebrow">Escute</p>
+        <h2 className="section-title" id="listen-title">A música segue por aqui.</h2>
+        <p>
+          Os canais oficiais do artista reúnem os links para escutar as
+          faixas disponíveis e acompanhar novidades confirmadas.
+        </p>
+        <div className="editorial-actions">
+          <a className="action-link" href="https://beacons.ai/marcellorlaoff" rel="noopener noreferrer">
+            Ouvir nos canais oficiais <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </section>
     </main>
   )
 }
