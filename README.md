@@ -96,3 +96,26 @@ read-model `marcello_public_tracks`: sem duplicação estática de lançamentos.
 
 Imagens e fotografias somente após autorização de uso e checagem dos direitos
 pertinentes; a capa existente não foi substituída neste ciclo.
+
+## Marca MARCELLO ORLA — A+ v1.0 homologada (18/10/2026)
+
+A decisão do Master `DEC-MO-DS-20261018-01`, registrada na
+[TAP de design](docs/brand/TAP-MARCELLO-ORLA-A-PLUS-v1.0-HOMOLOGADA.md),
+homologou a direção digital **A+** para desenvolvimento da marca do artista.
+As [diretrizes v1.0](docs/brand/DIRETRIZES-MARCA-MARCELLO-ORLA-v1.0-HOMOLOGADAS.md)
+e o [manifesto de tokens](docs/brand/IDENTIDADE-MARCELLO-ORLA-A-PLUS-v1.0.json)
+registram os critérios de qualidade e os papéis das cores/famílias tipográficas.
+
+O A+ usa branco opaco #FFFFFF, Carbono #202124, Coral Editorial #AD382E,
+cinza frio #F2F3F5, bordas #D9DDE1 e IBM Plex Sans funcional,
+com Bricolage Grotesque em títulos. **CARIOCANDO é um álbum e terá identidade
+própria**, ainda não homologada. `© OSAMBA SYSTEM` é apenas assinatura
+visual textual provisória no topo direito e rodapé, sem acesso à infraestrutura
+do OSAMBA ou prova jurídica de titularidade.
+
+**Atenção:** a homologação aprova a linha-base de design e a implementação
+futura, **não atualiza automaticamente o CSS deste repositório, não valida
+fotos/logos do Canva e não autoriza DEPLOY no Cloudflare**. A nova versão só
+pode ser publicada após direitos de mídia, testes reais de dispositivos,
+acessibilidade/SEO, integração ao read-model público, CI e autorização
+explícita de publicação. Evitar custo adicional (R$ 0).
