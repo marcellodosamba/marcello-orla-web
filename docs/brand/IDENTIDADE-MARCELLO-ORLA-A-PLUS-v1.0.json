@@ -1,0 +1,67 @@
+{
+  "project": "MARCELLO ORLA",
+  "version": "1.0",
+  "decision_id": "DEC-MO-DS-20261018-01",
+  "tap_id": "TAP-MO-ART-001",
+  "date_br": "2026-10-18",
+  "state": "HOMOLOGADO_PARA_IMPLEMENTACAO_SEM_DEPLOY",
+  "visual_direction": "A+ — branco e composição do A, tipografia expressiva do B",
+  "digital_srgb_tokens": {
+    "background": "#FFFFFF",
+    "ink": "#202124",
+    "accent": "#AD382E",
+    "surface": "#F2F3F5",
+    "line": "#D9DDE1",
+    "secondary": "#5A5E66"
+  },
+  "typography": {
+    "display": "Bricolage Grotesque",
+    "interface": "IBM Plex Sans",
+    "fonts_render_license_pending": true
+  },
+  "home": {
+    "visible_content": [
+      "nome do artista",
+      "músicas publicadas"
+    ],
+    "artist": "MARCELLO ORLA",
+    "tracks": [
+      "Amor Líquido",
+      "Podia Ser",
+      "Espetacular"
+    ],
+    "navigation": [
+      "Sobre",
+      "Música"
+    ]
+  },
+  "osamba_credit": {
+    "text": "© OSAMBA SYSTEM",
+    "positions": [
+      "header_right",
+      "footer"
+    ],
+    "graphic_logo_approved": false,
+    "legal_copyright_title_proven": false
+  },
+  "album": {
+    "name": "CARIOCANDO",
+    "kind": "album",
+    "visual_identity_approved": false,
+    "full_album_release_confirmed": false
+  },
+  "release": {
+    "deploy_authorized": false,
+    "canva_assets_approved": false,
+    "pantone_approved": false,
+    "real_device_color_test_passed": false,
+    "github_implementation_complete": false
+  },
+  "architecture": {
+    "github_repo": "marcellodosamba/marcello-orla-web",
+    "lovable_project_id": "fce95c94-94d6-42d5-bb20-aea358bb88b1",
+    "catalog_source": "Supabase MARCELLO ORLA public.marcello_public_tracks",
+    "osamba_internal_dependencies_allowed": false
+  },
+  "budget_new_brl": 0
+}
