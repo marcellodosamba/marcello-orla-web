@@ -1,62 +1,48 @@
 import { publicPageMetadata } from '@/lib/seo/public-metadata'
 import { getPublicCatalog } from '@/lib/data/public-catalog'
-import Link from 'next/link'
-import { PageHeading, ProjectCover } from '../public-content'
+
+// O catálogo público depende de Supabase em runtime, nunca de prerender sem credenciais.
+export const dynamic = 'force-dynamic'
 
 export const metadata = publicPageMetadata({
   pathname: '/musica',
   title: 'Música',
-  description: 'Explore a música de Marcello Orla e conheça Cariocando, uma obra em destaque.',
+  description: 'Ouça as músicas publicadas por Marcello Orla, incluindo Amor Líquido, Podia Ser e Espetacular.',
 })
-
+const previewTracks = [
+  { id: 'preview-amor-liquido', title: 'Amor Líquido' },
+  { id: 'preview-podia-ser', title: 'Podia Ser' },
+  { id: 'preview-espetacular', title: 'Espetacular' },
+]
 export default async function MusicaPage() {
   const catalog = await getPublicCatalog()
-  const tracks = catalog.tracks
-
+  const tracks = catalog.tracks.length > 0 ? catalog.tracks : process.env.NODE_ENV !== 'production' ? previewTracks : []
   return (
-    <main id="conteudo" className="page-wrap" tabIndex={-1}>
-      <PageHeading
-        eyebrow="Escuta"
-        title="Música"
-        description="Um espaço para descobrir as obras de Marcello Orla."
-      />
-      <section className="album-layout" aria-labelledby="cariocando-title">
-        <Link href="/cariocando" aria-label="Conheça Cariocando">
-          <ProjectCover />
-        </Link>
-        <div className="album-copy">
-          <p className="eyebrow">Em destaque</p>
-          <h2 className="section-title" id="cariocando-title">
-            Cariocando
-          </h2>
-          <p>
-            Uma obra de samba carioca contemporâneo no centro do universo
-            musical de Marcello Orla.
-          </p>
-          <Link className="text-link" href="/cariocando">
-            Conhecer Cariocando <span aria-hidden="true">↗</span>
-          </Link>
+    <main id="conteudo" className="a-plus-main a-plus-inner" tabIndex={-1}>
+      <section className="a-plus-music-intro" aria-labelledby="musica-title">
+        <div className="a-plus-music-copy">
+          <h1 id="musica-title" className="a-plus-inner-title">Música</h1>
+          <p className="a-plus-caption">Faixas publicadas do álbum CARIOCANDO.</p>
         </div>
+        <figure className="a-plus-music-art">
+          {/* Mídia Canva reorganizada sobre fundo do A+, sem alterar o rosto ou inventar capa. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img className="a-plus-music-wave" src="/media/marcello-orla-canva-onda-musical.png" width={952} height={315} alt="" aria-hidden="true" loading="lazy" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img className="a-plus-music-cutout" src="/media/marcello-orla-canva-recorte-busto.png" width={896} height={922} alt="Retrato recortado do acervo artístico Canva de Marcello Orla" loading="lazy" />
+        </figure>
       </section>
-      <section aria-labelledby="catalog-title" className="section-block">
-        <h2 id="catalog-title" className="section-title">Faixas no catálogo</h2>
-        {catalog.error ? <p className="catalog-state" role="alert">{catalog.error}</p> : tracks.length === 0 ? <p className="catalog-state">Nenhuma faixa disponível neste catálogo.</p> : (
-          <ul className="catalog-tracks">{tracks.map(track => <li key={track.id}><span className="catalog-track-title">{track.number != null ? `${track.number}. ` : ''}{track.title}</span>{track.album && <span className="catalog-track-album">{track.album}</span>}</li>)}</ul>
-        )}
-      </section>
-      <section className="section-block editorial-listening" aria-labelledby="listen-title">
-        <p className="eyebrow">Escute</p>
-        <h2 className="section-title" id="listen-title">A música segue por aqui.</h2>
-        <p>
-          Os canais oficiais do artista reúnem os links para escutar as
-          faixas disponíveis e acompanhar novidades confirmadas.
-        </p>
-        <div className="editorial-actions">
-          <a className="action-link" href="https://beacons.ai/marcellorlaoff" rel="noopener noreferrer">
-            Ouvir nos canais oficiais <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-      </section>
+      {catalog.error && process.env.NODE_ENV === 'production' && <p role="status" className="a-plus-status">{catalog.error}</p>}
+      <ol className="a-plus-track-list">
+        {tracks.map((track, index) => (
+          <li key={track.id} className="a-plus-track">
+            <span className="a-plus-track-number" aria-hidden="true">{String(index+1).padStart(2,'0')}</span>
+            <span className="a-plus-track-title">{track.title}</span>
+            <a className="a-plus-listen" href="https://beacons.ai/marcellorlaoff" target="_blank" rel="noopener noreferrer" aria-label={`Ouvir ${track.title} nos canais oficiais`}>Ouvir ↗</a>
+          </li>
+        ))}
+      </ol>
+      {tracks.length === 0 && <p className="a-plus-status">Catálogo temporariamente indisponível.</p>}
     </main>
   )
 }

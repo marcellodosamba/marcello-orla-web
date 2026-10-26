@@ -1,44 +1,30 @@
-import Link from 'next/link'
 import { publicPageMetadata } from '@/lib/seo/public-metadata'
-import { PageHeading } from '../public-content'
+import Link from 'next/link'
 
 export const metadata = publicPageMetadata({
   pathname: '/sobre',
-  title: 'O artista',
-  description: 'Conheça Marcello Orla e sua identidade artística no samba carioca contemporâneo.',
+  title: 'Sobre',
+  description: 'Marcello Orla: carioca, samba, pagode e histórias que viram canção.',
 })
 
 export default function SobrePage() {
   return (
-    <main id="conteudo" className="page-wrap" tabIndex={-1}>
-      <PageHeading
-        eyebrow="O intérprete"
-        title="Marcello Orla"
-        description="Carioca, samba, pagode e histórias que viram canção."
-      />
-      <section className="editorial-band" aria-labelledby="artist-statement-title">
-        <p className="eyebrow" id="artist-statement-title">De onde vem</p>
-        <p>
-          O Rio de Janeiro é ponto de partida. Samba, pagode e histórias
-          cotidianas se encontram na identidade musical de Marcello Orla.
-        </p>
-      </section>
-      <section className="section-block editorial-listening" aria-labelledby="artist-listen-title">
-        <p className="eyebrow">Música e encontro</p>
-        <h2 className="section-title" id="artist-listen-title">Canções para ouvir de perto.</h2>
-        <p>
-          Conheça as faixas disponíveis no catálogo público e acompanhe os
-          próximos capítulos pelos canais oficiais do artista.
-        </p>
-        <div className="editorial-actions">
-          <Link className="action-link" href="/musica">
-            Conhecer as músicas <span aria-hidden="true">↗</span>
-          </Link>
-          <a className="action-link secondary" href="https://beacons.ai/marcellorlaoff" rel="noopener noreferrer">
-            Ver canais oficiais <span aria-hidden="true">↗</span>
-          </a>
+    <main id="conteudo" className="a-plus-main a-plus-inner" tabIndex={-1}>
+      <div className="a-plus-about-grid">
+        <div>
+          <h1 className="a-plus-inner-title">Sobre</h1>
+          <p className="a-plus-about-copy">Carioca, samba, pagode e histórias que viram canção.</p>
+          <Link className="a-plus-about-link" href="/musica">Ouvir músicas ↗</Link>
         </div>
-      </section>
+        <figure className="a-plus-about-photo a-plus-about-canvas">
+          {/* Mídia Canva: recorte do mesmo acervo sobre fundo neutro da marca A+.
+              Apenas prévia: licenciamento e alta resolução pendentes de homologação. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img className="a-plus-about-pattern" src="/media/marcello-orla-canva-grafismo-editorial.png" width={401} height={495} alt="" aria-hidden="true" loading="lazy" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img className="a-plus-about-fullbody" src="/media/marcello-orla-canva-recorte-corpo-inteiro.png" width={235} height={630} alt="Fotografia de corpo inteiro do acervo Canva de Marcello Orla" loading="lazy" />
+        </figure>
+      </div>
     </main>
   )
 }

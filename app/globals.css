@@ -723,3 +723,187 @@ button:not(:disabled),
 .catalog-track-album { color: var(--color-muted); }
 .catalog-state { margin-top: 24px; padding: 24px; border: 1px solid var(--color-line); overflow-wrap: anywhere; }
 .public-shell :focus-visible { outline: 2px solid var(--color-primary); outline-offset: 4px; }
+
+
+/* MARCELLO ORLA — A+ v1.0 | DEC-MO-DS-20261018-01
+   Homologado para desenvolvimento. Mídia e produção pendentes de aprovação final.
+   Tokens A+ ISOLADOS em .public-shell: preservar Conselho, gestão e album editorial. */
+.public-shell {
+  --color-paper: #FFFFFF;
+  --color-ink: #202124;
+  --color-primary: #AD382E;
+  --color-muted: #5A5E66;
+  --color-line: #D9DDE1;
+  --color-paper-soft: #F2F3F5;
+  --background: #FFFFFF;
+  --foreground: #202124;
+  color: #202124;
+  font-family: var(--font-plex), system-ui, sans-serif;
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.a-plus-header, .a-plus-main, .a-plus-footer {
+  width: min(calc(100% - 64px), 1200px);
+  margin-inline: auto;
+}
+.a-plus-header { padding-block: 20px 0; }
+.a-plus-head-row { display:flex; justify-content:space-between; align-items:center; gap:14px; min-height:44px; }
+.a-plus-wordmark {
+  font: 800 clamp(15px, 1.7vw, 20px)/1 var(--font-bricolage), system-ui, sans-serif;
+  letter-spacing: -.025em;
+  text-decoration:none; color:#202124;
+  min-height:44px; display:inline-flex; align-items:center;
+}
+.a-plus-osamba, .a-plus-footer {
+  font-family:var(--font-plex),system-ui,sans-serif;
+  font-size: 11px; font-weight:500; letter-spacing:.14em;
+  text-transform:uppercase; color:#5A5E66;
+}
+.a-plus-osamba { white-space:nowrap; }
+.a-plus-nav { display:flex; gap:25px; align-items:center; }
+.a-plus-nav-link {
+  display:inline-flex; min-height:44px; align-items:center;
+  font:500 11px/1.5 var(--font-plex),system-ui,sans-serif;
+  color:#5A5E66; text-transform:uppercase; letter-spacing:.16em;
+  text-decoration:none;
+}
+.a-plus-nav-link:hover,.a-plus-nav-link:focus-visible { color:#AD382E; }
+.a-plus-main { flex:1; padding-block: clamp(42px, 6vw, 90px) clamp(70px,8vw,120px); }
+.a-plus-hero { display:grid; grid-template-columns: minmax(0, 1.4fr) minmax(180px,.75fr); gap:clamp(25px,5vw,70px); align-items:center; }
+.a-plus-title, .a-plus-inner-title {
+  font-family:var(--font-bricolage),system-ui,sans-serif;
+  font-weight:800; letter-spacing:-.058em; color:#202124;
+}
+.a-plus-title { font-size:clamp(48px,8.4vw,128px); line-height:.92; margin:0; }
+.a-plus-title span { display:block; }
+.a-plus-portrait { margin:0; justify-self:end; width:min(100%, 360px); }
+.a-plus-portrait img, .a-plus-about-photo img { display:block; width:100%; height:auto; object-fit:cover; background:#FFFFFF; }
+.a-plus-tracks { margin-top:clamp(48px,5.8vw,94px); }
+.a-plus-label {
+  color:#AD382E; font:600 12px/1.5 var(--font-plex),system-ui,sans-serif;
+  text-transform:uppercase; letter-spacing:.22em; margin:0 0 24px;
+}
+.a-plus-track-list { list-style:none; padding:0; margin:0; border-top:1px solid #202124; }
+.a-plus-track {
+  display:grid; grid-template-columns:40px minmax(0,1fr) auto; align-items:center;
+  gap:clamp(10px,3vw,30px); padding:clamp(19px,3vw,34px) 0;
+  border-bottom:1px solid #D9DDE1;
+}
+.a-plus-track-number { color:#AD382E; font:500 12px/1.5 var(--font-plex),system-ui,sans-serif; }
+.a-plus-track-title {
+  font:800 clamp(25px,3.75vw,50px)/1.12 var(--font-bricolage),system-ui,sans-serif;
+  letter-spacing:-.035em; overflow-wrap:anywhere; min-width:0;
+}
+.a-plus-listen,.a-plus-about-link {
+  color:#202124; font:600 11px/1.4 var(--font-plex),system-ui,sans-serif;
+  letter-spacing:.12em; text-transform:uppercase; text-decoration:none;
+  display:inline-flex; align-items:center; justify-content:center; min-height:44px; min-width:44px;
+}
+.a-plus-listen:hover,.a-plus-about-link:hover { color:#AD382E; }
+.a-plus-wordmark:focus-visible,.a-plus-listen:focus-visible,.a-plus-nav-link:focus-visible,
+.a-plus-about-link:focus-visible { outline:2px solid #AD382E; outline-offset:3px; }
+.a-plus-footer { border-top:1px solid #D9DDE1; padding-block:24px; margin-top:auto; }
+.a-plus-inner { padding-top:clamp(55px,10vw,130px); }
+.a-plus-inner-title { font-size:clamp(62px,10vw,130px); line-height:.95; margin:0 0 28px; }
+.a-plus-caption { color:#5A5E66; margin:0 0 54px; font-size:clamp(15px,1.8vw,20px); }
+.a-plus-status { color:#5A5E66; font:500 14px/1.5 var(--font-plex),system-ui,sans-serif; margin:22px 0; }
+.a-plus-about-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(180px,.65fr); align-items:start; gap:clamp(32px,7vw,100px); }
+.a-plus-about-photo { margin:0; justify-self:end; max-width:370px; }
+.a-plus-about-copy { font:500 clamp(20px,2.6vw,31px)/1.35 var(--font-plex),system-ui,sans-serif; letter-spacing:-.025em; max-width:570px; margin:0 0 35px; }
+@media (max-width: 680px) {
+  .a-plus-header,.a-plus-main,.a-plus-footer { width:calc(100% - 36px); }
+  .a-plus-header { padding-top:10px; }
+  .a-plus-wordmark { font-size:14px; }
+  .a-plus-osamba { font-size:9px; letter-spacing:.08em; }
+  .a-plus-nav { gap:20px; }
+  .a-plus-main { padding-top:52px; }
+  .a-plus-hero { grid-template-columns:minmax(0,1fr) 115px; gap:13px; }
+  .a-plus-title { font-size:clamp(40px,10.5vw,76px); letter-spacing:-.065em; }
+  .a-plus-portrait { width:115px; }
+  .a-plus-tracks { margin-top:62px; }
+  .a-plus-track { grid-template-columns:23px minmax(0,1fr) auto; gap:9px; padding:24px 0; }
+  .a-plus-track-title { font-size:clamp(21px,5.7vw,32px); }
+  .a-plus-listen { font-size:10px; letter-spacing:.04em; }
+  .a-plus-about-grid { grid-template-columns:1fr; }
+  .a-plus-about-photo { justify-self:start; width:min(100%,320px); }
+}
+@media (max-width: 355px) {
+  .a-plus-hero { grid-template-columns:1fr; }
+  .a-plus-portrait { width:135px; justify-self:start; }
+  .a-plus-osamba { font-size:8px; }
+}
+
+/* CANVA MEDIA — white A+ adaptations, source media untouched.
+ * These are COMPOSITIONS assembled from transparent images already in the artist's Canva.
+ * Preview only until original-resolution media and rights are verified. */
+.a-plus-music-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(210px, .72fr);
+  gap: clamp(28px, 5vw, 76px);
+  align-items: center;
+  margin-bottom: clamp(34px, 5vw, 66px);
+}
+.a-plus-music-intro .a-plus-caption { margin-bottom: 0; }
+.a-plus-music-art {
+  position: relative;
+  width: min(100%, 410px);
+  aspect-ratio: 7 / 5;
+  margin: 0;
+  overflow: hidden;
+  justify-self: end;
+  background: #F2F3F5;
+}
+.a-plus-music-wave {
+  position: absolute;
+  width: 96%;
+  left: 2%;
+  top: 41%;
+  height: auto;
+  opacity: .45;
+  object-fit: contain;
+}
+.a-plus-music-cutout {
+  position: absolute;
+  right: 8%;
+  bottom: 0;
+  width: 52%;
+  max-height: 95%;
+  object-fit: contain;
+  object-position: bottom center;
+}
+.a-plus-about-canvas {
+  position: relative;
+  width: min(100%, 420px);
+  height: clamp(330px, 37vw, 480px);
+  overflow: hidden;
+  background: #FFFFFF;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+}
+.a-plus-about-pattern {
+  position: absolute;
+  width: 74%;
+  max-height: 90%;
+  object-fit: contain;
+  left: 5%;
+  top: 5%;
+  opacity: .24;
+}
+.a-plus-about-fullbody {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: auto !important;
+  height: 92% !important;
+  max-width: 73%;
+  object-fit: contain;
+  object-position: bottom center;
+}
+@media (max-width: 680px) {
+  .a-plus-music-intro { grid-template-columns: 1fr; gap: 28px; }
+  .a-plus-music-art { justify-self: start; width: min(100%, 350px); }
+  .a-plus-about-canvas { height: 400px; width: min(100%, 340px); }
+}

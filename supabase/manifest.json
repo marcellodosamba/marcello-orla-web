@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "project": "MARCELLO ORLA",
+  "ref": "gpbkbszchibjtdmkliah",
+  "url": "https://gpbkbszchibjtdmkliah.supabase.co",
+  "role": "banco do ATISTA (dono: projeto; central só integra; isolamento do OSAMBA mandatory)",
+  "binding": {
+    "site": "app Next + worker Cloudflare (bindings já em cloudflare.config.ts)",
+    "agents": "REST read-only com anon (quando liberada)",
+    "backup": "scripts/backup-db.sh em integracoes/supabase/"
+  },
+  "operacoes": {
+    "read_pu": "permitido a agentes (anon) nas tabelas liberadas por RLS/GRANT",
+    "write": "NEGADO a agentes — sempre",
+    "isolation": "uma credencial por projeto; nunca cruzar com wfup (osamba)"
+  }
+}

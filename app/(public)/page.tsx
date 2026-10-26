@@ -1,80 +1,58 @@
 import { publicPageMetadata } from '@/lib/seo/public-metadata'
-import Link from 'next/link'
-import { ProjectCover, ProjectLink } from './public-content'
+import { getPublicCatalog } from '@/lib/data/public-catalog'
+
+// O catálogo público depende de Supabase em runtime, nunca de prerender sem credenciais.
+export const dynamic = 'force-dynamic'
 
 export const metadata = publicPageMetadata({
   pathname: '/',
-  title: 'Marcello Orla — Samba carioca contemporâneo',
-  description: 'Conheça Marcello Orla, sua música e o universo do samba carioca contemporâneo.',
+  title: 'Marcello Orla — Músicas',
+  description: 'Marcello Orla. Ouça Amor Líquido, Podia Ser e Espetacular nos canais oficiais.',
 })
 
-export default function HomePage() {
+// Fallback EXCLUSIVO da prévia local: somente três faixas já identificadas como publicadas.
+// Produção continua usando o catálogo Supabase MARCELLO ORLA (read-model público).
+const previewTracks = [
+  { id: 'preview-amor-liquido', title: 'Amor Líquido' },
+  { id: 'preview-podia-ser', title: 'Podia Ser' },
+  { id: 'preview-espetacular', title: 'Espetacular' },
+]
+const listeningLink = 'https://beacons.ai/marcellorlaoff'
+
+export default async function HomePage() {
+  const catalog = await getPublicCatalog()
+  const tracks = catalog.tracks.length > 0
+    ? catalog.tracks
+    : process.env.NODE_ENV !== 'production' ? previewTracks : []
+
   return (
-    <main id="conteudo" className="page-wrap" tabIndex={-1}>
-      <section className="hero-grid" aria-labelledby="home-title">
-        <div className="hero-copy">
-          <p className="eyebrow">Uma voz, um lugar, muitas histórias</p>
-          <h1 className="display-title" id="home-title">
-            Marcello Orla
+    <main id="conteudo" className="a-plus-main" tabIndex={-1}>
+      <section className="a-plus-hero" aria-labelledby="home-title">
+        <div className="a-plus-hero-text">
+          <h1 className="a-plus-title" id="home-title">
+            <span>MARCELLO</span><span>ORLA</span>
           </h1>
-          <p className="hero-subtitle">Samba carioca contemporâneo.</p>
-          <div className="action-row">
-            <Link className="action-link" href="/musica">
-              Explorar música <span aria-hidden="true">↗</span>
-            </Link>
-            <Link className="action-link secondary" href="/sobre">
-              Conhecer o artista <span aria-hidden="true">↗</span>
-            </Link>
-          </div>
         </div>
-        <figure className="cover-frame-hero">
-          <ProjectCover />
-          <figcaption className="cover-caption">
-            <span>Uma obra em destaque</span>
-            <span>Cariocando</span>
-          </figcaption>
+        <figure className="a-plus-portrait">
+          {/* Prévia: mídia do Canva do titular. Direitos e arquivo de alta resolução pendentes de homologação. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/media/marcello-orla-canva-retrato.png" alt="Retrato editorial presente no acervo Canva de Marcello Orla" width={600} height={600} loading="eager" />
         </figure>
       </section>
-
-      <section className="editorial-band section-block">
-        <p className="eyebrow">O universo</p>
-        <p>
-          Música para escutar de perto. Um espaço para conhecer o artista e
-          acompanhar o que vem ao vivo.
-        </p>
-      </section>
-
-      <section className="section-block" aria-labelledby="explore-title">
-        <div className="section-heading">
-          <div>
-            <p className="eyebrow">Explore</p>
-            <h2 className="section-title" id="explore-title">
-              O universo Orla
-            </h2>
-          </div>
-        </div>
-        <div className="feature-grid">
-          <ProjectLink
-            href="/cariocando"
-            title="Cariocando"
-            detail="Conheça a obra"
-          />
-          <ProjectLink
-            href="/banda"
-            title="Banda"
-            detail="A formação musical"
-          />
-          <ProjectLink
-            href="/ao-vivo"
-            title="Ao vivo"
-            detail="Presença de palco"
-          />
-          <ProjectLink
-            href="/agenda"
-            title="Agenda"
-            detail="Acompanhe as novidades"
-          />
-        </div>
+      <section aria-labelledby="musicas-home" className="a-plus-tracks">
+        <h2 className="a-plus-label" id="musicas-home">Músicas</h2>
+        {catalog.error && process.env.NODE_ENV === 'production' && <p role="status" className="a-plus-status">{catalog.error}</p>}
+        {tracks.length === 0 ? <p className="a-plus-status">Catálogo temporariamente indisponível.</p> : (
+          <ol className="a-plus-track-list">
+            {tracks.map((track, i) => (
+              <li className="a-plus-track" key={track.id}>
+                <span className="a-plus-track-number" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+                <span className="a-plus-track-title">{track.title}</span>
+                <a className="a-plus-listen" href={listeningLink} target="_blank" rel="noopener noreferrer" aria-label={`Ouvir ${track.title} nos canais oficiais`}>Ouvir <span aria-hidden="true">↗</span></a>
+              </li>
+            ))}
+          </ol>
+        )}
       </section>
     </main>
   )
