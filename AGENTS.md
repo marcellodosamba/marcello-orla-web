@@ -1,5 +1,7 @@
 # MARCELLO ORLA — instruções para agentes
 
+> Regras comuns: [HUB SUPORTE-OPS](../../../../AGENTS.md). Regras locais vencem as do hub.
+
 ## Objetivo e documentação
 Manter o aplicativo público independente da carreira e do portfólio de Marcello
 Orla, com conteúdo confirmado, acessibilidade e autonomia de marca.
